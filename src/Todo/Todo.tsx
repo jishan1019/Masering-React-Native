@@ -1,12 +1,32 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import TodoInput from '../components/TodoInput';
+import TodoList from '../components/TodoList';
+import {ITodo} from '../types';
 
 export default function Todo() {
+  const [todoList, setTodoList] = React.useState<ITodo[]>([]);
+
+  const addTodo = (text: string) => {
+    setTodoList([
+      ...todoList,
+      {
+        id: Date.now().toString(),
+        text,
+        completed: false,
+      },
+    ]);
+  };
+
+  const deleteTodo = (id: string) => {
+    setTodoList(todoList.filter(todo => todo.id !== id));
+  };
+
   return (
     <View>
       <Text style={styles.headerText}>Todo App</Text>
-      <TodoInput />
+      <TodoInput onAddTodo={addTodo} />
+      <TodoList onDeleteTodo={deleteTodo} todoList={todoList} />
     </View>
   );
 }

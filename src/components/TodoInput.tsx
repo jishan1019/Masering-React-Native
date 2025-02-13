@@ -7,8 +7,19 @@ import {
   View,
 } from 'react-native';
 
-export default function TodoInput() {
+interface TodoInputProps {
+  onAddTodo: (text: string) => void;
+}
+
+export default function TodoInput({onAddTodo}: TodoInputProps) {
   const [value, setValue] = useState('');
+
+  const handelOnAddTodo = () => {
+    if (value.trim()) {
+      onAddTodo(value.trim());
+      setValue('');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -17,9 +28,12 @@ export default function TodoInput() {
         placeholder="Add a new todo"
         placeholderTextColor="gray"
         onChangeText={setValue}
+        value={value}
       />
 
-      <TouchableOpacity style={styles.addTodoBtn}>
+      <TouchableOpacity
+        onPress={() => handelOnAddTodo()}
+        style={styles.addTodoBtn}>
         <Text style={styles.addTodoBtnText}>Add</Text>
       </TouchableOpacity>
     </View>
