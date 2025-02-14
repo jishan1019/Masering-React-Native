@@ -5,12 +5,13 @@ import {ITodo} from '../types';
 interface TodoItemProps {
   todo: ITodo;
   onDelete: () => void;
+  onToggle: () => void;
 }
 
-export default function TodoItem({todo, onDelete}: TodoItemProps) {
+export default function TodoItem({todo, onDelete, onToggle}: TodoItemProps) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.todoText}>
+      <TouchableOpacity onPress={() => onToggle()} style={styles.todoText}>
         <Text style={[styles.text, todo?.completed && styles.completed]}>
           {todo.text}
         </Text>

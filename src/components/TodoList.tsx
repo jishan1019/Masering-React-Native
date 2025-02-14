@@ -6,15 +6,21 @@ import {ITodo} from '../types';
 interface TodoListProps {
   todoList: ITodo[];
   onDeleteTodo: (id: string) => void;
+  onToggleTodo: (id: string) => void;
 }
 
-export default function TodoList({todoList, onDeleteTodo}: TodoListProps) {
+export default function TodoList({
+  todoList,
+  onDeleteTodo,
+  onToggleTodo,
+}: TodoListProps) {
   return (
     <ScrollView>
       {todoList.map(todo => (
         <TodoItem
           key={todo.id}
           onDelete={() => onDeleteTodo(todo.id)}
+          onToggle={() => onToggleTodo(todo.id)}
           todo={todo}
         />
       ))}

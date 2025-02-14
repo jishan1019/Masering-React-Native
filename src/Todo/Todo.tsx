@@ -22,11 +22,29 @@ export default function Todo() {
     setTodoList(todoList.filter(todo => todo.id !== id));
   };
 
+  const toggleTodo = (id: string) => {
+    setTodoList(
+      todoList.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    );
+  };
+
   return (
     <View>
       <Text style={styles.headerText}>Todo App</Text>
       <TodoInput onAddTodo={addTodo} />
-      <TodoList onDeleteTodo={deleteTodo} todoList={todoList} />
+      <TodoList
+        onToggleTodo={toggleTodo}
+        onDeleteTodo={deleteTodo}
+        todoList={todoList}
+      />
     </View>
   );
 }
