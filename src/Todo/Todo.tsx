@@ -36,6 +36,20 @@ export default function Todo() {
     );
   };
 
+  const editTodo = (id: string, text: string) => {
+    setTodoList(
+      todoList.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            text,
+          };
+        }
+        return todo;
+      }),
+    );
+  };
+
   return (
     <View>
       <Text style={styles.headerText}>Todo App</Text>
@@ -43,6 +57,7 @@ export default function Todo() {
       <TodoList
         onToggleTodo={toggleTodo}
         onDeleteTodo={deleteTodo}
+        onEditTodo={editTodo}
         todoList={todoList}
       />
     </View>

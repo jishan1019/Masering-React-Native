@@ -7,12 +7,14 @@ interface TodoListProps {
   todoList: ITodo[];
   onDeleteTodo: (id: string) => void;
   onToggleTodo: (id: string) => void;
+  onEditTodo: (id: string, text: string) => void;
 }
 
 export default function TodoList({
   todoList,
   onDeleteTodo,
   onToggleTodo,
+  onEditTodo,
 }: TodoListProps) {
   return (
     <ScrollView>
@@ -21,6 +23,7 @@ export default function TodoList({
           key={todo.id}
           onDelete={() => onDeleteTodo(todo.id)}
           onToggle={() => onToggleTodo(todo.id)}
+          onEdit={(newText: string) => onEditTodo(todo.id, newText)}
           todo={todo}
         />
       ))}
