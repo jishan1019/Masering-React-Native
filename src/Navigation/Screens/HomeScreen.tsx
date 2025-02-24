@@ -15,10 +15,18 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>Home Screen</Text>
+
       <Button
         title="Go to Stack Navigation"
         onPress={() => {
           navigation.navigate('StackHome');
+        }}
+      />
+
+      <Button
+        title="Go to Tab Navigation"
+        onPress={() => {
+          navigation.navigate('TabDemo');
         }}
       />
     </View>
