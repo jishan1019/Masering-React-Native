@@ -29,6 +29,13 @@ export default function HomeScreen() {
           navigation.navigate('TabDemo');
         }}
       />
+
+      <Button
+        title="Go to Drawer Navigation"
+        onPress={() => {
+          navigation.navigate('DrawerDemo');
+        }}
+      />
     </View>
   );
 }
