@@ -36,6 +36,20 @@ export default function HomeScreen() {
           navigation.navigate('DrawerDemo');
         }}
       />
+
+      <Button
+        title="Go to Flat List"
+        onPress={() => {
+          navigation.navigate('FlatList');
+        }}
+      />
+
+      <Button
+        title="Go to TouchScreen"
+        onPress={() => {
+          navigation.navigate('TouchScreen');
+        }}
+      />
     </View>
   );
 }
