@@ -50,6 +50,20 @@ export default function HomeScreen() {
           navigation.navigate('TouchScreen');
         }}
       />
+
+      <Button
+        title="Go to ModalScreen"
+        onPress={() => {
+          navigation.navigate('ModalScreen');
+        }}
+      />
+
+      <Button
+        title="Go to PullRefresh"
+        onPress={() => {
+          navigation.navigate('PullRefresh');
+        }}
+      />
     </View>
   );
 }

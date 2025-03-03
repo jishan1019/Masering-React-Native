@@ -6,6 +6,8 @@ import TabNavigationDemo from './Tab/TabNavigationDemo';
 import DrawerNavigationDemo from './Drawer/DrawerNavigationDemo';
 import FlatListScreen from './OtherScreen/FlatListScreen';
 import TuchableScreen from './OtherScreen/TuchableScreen';
+import ModalScreen from './OtherScreen/ModalScreen';
+import PullToRefresh from './OtherScreen/PullToRefresh';
 
 export type RootStackParamsList = {
   Home: undefined;
@@ -14,6 +16,8 @@ export type RootStackParamsList = {
   DrawerDemo: undefined;
   FlatList: undefined;
   TouchScreen: undefined;
+  ModalScreen: undefined;
+  PullRefresh: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamsList>();
@@ -28,6 +32,8 @@ export default function () {
 
       <Stack.Screen name="FlatList" component={FlatListScreen} />
       <Stack.Screen name="TouchScreen" component={TuchableScreen} />
+      <Stack.Screen name="ModalScreen" component={ModalScreen} />
+      <Stack.Screen name="PullRefresh" component={PullToRefresh} />
     </Stack.Navigator>
   );
 }
