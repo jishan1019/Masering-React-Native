@@ -3,6 +3,7 @@ import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import {RootStackParamsList} from '../RootNavigator';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {ScrollView} from 'react-native-gesture-handler';
 
 type HomeScreenNavigationProps = StackNavigationProp<
   RootStackParamsList,
@@ -16,61 +17,88 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Text>Home Screen</Text>
 
-      <Button
-        title="Go to Stack Navigation"
-        onPress={() => {
-          navigation.navigate('StackHome');
-        }}
-      />
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.item}>
+          <Button
+            title="Go to Stack Navigation"
+            onPress={() => {
+              navigation.navigate('StackHome');
+            }}
+          />
+        </View>
 
-      <Button
-        title="Go to Tab Navigation"
-        onPress={() => {
-          navigation.navigate('TabDemo');
-        }}
-      />
+        <View style={styles.item}>
+          <Button
+            title="Go to Tab Navigation"
+            onPress={() => {
+              navigation.navigate('TabDemo');
+            }}
+          />
+        </View>
 
-      <Button
-        title="Go to Drawer Navigation"
-        onPress={() => {
-          navigation.navigate('DrawerDemo');
-        }}
-      />
+        <View style={styles.item}>
+          <Button
+            title="Go to Drawer Navigation"
+            onPress={() => {
+              navigation.navigate('DrawerDemo');
+            }}
+          />
+        </View>
 
-      <Button
-        title="Go to Flat List"
-        onPress={() => {
-          navigation.navigate('FlatList');
-        }}
-      />
+        <View style={styles.item}>
+          <Button
+            title="Go to Flat List"
+            onPress={() => {
+              navigation.navigate('FlatList');
+            }}
+          />
+        </View>
 
-      <Button
-        title="Go to TouchScreen"
-        onPress={() => {
-          navigation.navigate('TouchScreen');
-        }}
-      />
+        <View style={styles.item}>
+          <Button
+            title="Go to TouchScreen"
+            onPress={() => {
+              navigation.navigate('TouchScreen');
+            }}
+          />
+        </View>
 
-      <Button
-        title="Go to ModalScreen"
-        onPress={() => {
-          navigation.navigate('ModalScreen');
-        }}
-      />
+        <View style={styles.item}>
+          <Button
+            title="Go to ModalScreen"
+            onPress={() => {
+              navigation.navigate('ModalScreen');
+            }}
+          />
+        </View>
 
-      <Button
-        title="Go to PullRefresh"
-        onPress={() => {
-          navigation.navigate('PullRefresh');
-        }}
-      />
+        <View style={styles.item}>
+          <Button
+            title="Go to PullRefresh"
+            onPress={() => {
+              navigation.navigate('PullRefresh');
+            }}
+          />
+        </View>
 
-      <Button
-        title="Go to Theme"
-        onPress={() => {
-          navigation.navigate('Theme');
-        }}
-      />
+        <View style={styles.item}>
+          <Button
+            title="Go to Theme"
+            onPress={() => {
+              navigation.navigate('Theme');
+            }}
+          />
+        </View>
+
+        <View style={styles.item}>
+          <Button
+            title="Go to Basic Animation"
+            onPress={() => {
+              navigation.navigate('BasicAnimation');
+            }}
+          />
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -81,5 +109,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  scrollView: {
+    gap: 5,
+  },
+  item: {
+    paddingVertical: 10,
   },
 });

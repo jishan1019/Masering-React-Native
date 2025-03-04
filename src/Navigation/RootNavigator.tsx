@@ -9,6 +9,7 @@ import TuchableScreen from './OtherScreen/TuchableScreen';
 import ModalScreen from './OtherScreen/ModalScreen';
 import PullToRefresh from './OtherScreen/PullToRefresh';
 import ThemeDemo from './OtherScreen/ThemeDemo';
+import BasicAnimation from './Animation/BasicAnimation';
 
 export type RootStackParamsList = {
   Home: undefined;
@@ -20,6 +21,7 @@ export type RootStackParamsList = {
   ModalScreen: undefined;
   PullRefresh: undefined;
   Theme: undefined;
+  BasicAnimation: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamsList>();
@@ -37,6 +39,8 @@ export default function () {
       <Stack.Screen name="ModalScreen" component={ModalScreen} />
       <Stack.Screen name="PullRefresh" component={PullToRefresh} />
       <Stack.Screen name="Theme" component={ThemeDemo} />
+
+      <Stack.Screen name="BasicAnimation" component={BasicAnimation} />
     </Stack.Navigator>
   );
 }
