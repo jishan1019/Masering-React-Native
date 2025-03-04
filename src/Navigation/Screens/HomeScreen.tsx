@@ -64,6 +64,13 @@ export default function HomeScreen() {
           navigation.navigate('PullRefresh');
         }}
       />
+
+      <Button
+        title="Go to Theme"
+        onPress={() => {
+          navigation.navigate('Theme');
+        }}
+      />
     </View>
   );
 }

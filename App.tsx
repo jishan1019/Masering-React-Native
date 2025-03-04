@@ -2,12 +2,15 @@ import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import RootNavigator from './src/Navigation/RootNavigator';
+import {ThemeProvider} from './src/context/ThemeContext';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <RootNavigator />
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
 
