@@ -5,6 +5,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 export default function BasicAnimation() {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const translateAnim = useRef(new Animated.Value(0)).current;
+  const scaleAnim = useRef(new Animated.Value(1)).current;
 
   const handelFadeIn = () => {
     Animated.timing(fadeAnim, {
@@ -29,6 +30,21 @@ export default function BasicAnimation() {
       easing: Easing.bezier(0.25, 0.1, 0.25, 1),
       useNativeDriver: true,
     }).start();
+  };
+
+  const handelScale = () => {
+    Animated.sequence([
+      Animated.timing(scaleAnim, {
+        toValue: 2,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+    ]).start();
   };
 
   return (
@@ -64,6 +80,26 @@ export default function BasicAnimation() {
         />
 
         <Button onPress={handelTranslate} title="Translate" />
+      </View>
+
+      {/* Scale  animation */}
+      <View style={styles.demoContainer}>
+        <Text style={styles.headerText}>Scale Animation</Text>
+        <Animated.View
+          style={[
+            styles.box,
+            styles.fadeBox,
+            {
+              transform: [
+                {
+                  scale: scaleAnim,
+                },
+              ],
+            },
+          ]}
+        />
+
+        <Button onPress={handelScale} title="Scale" />
       </View>
     </ScrollView>
   );
